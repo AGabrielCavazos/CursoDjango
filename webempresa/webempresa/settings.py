@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'core',
-    'pages',
+    'contact',
+    'ckeditor',
+    'pages.apps.PagesConfig',
     'services.apps.ServicesConfig', 
     'social.apps.SocialConfig',
 ]
@@ -68,7 +70,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social.processors.ctx_dict',
+                
             ],
+        
         },
     },
 ]
@@ -130,3 +134,23 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+## ckeditor Editor aqui configuramos el editor cKEDITOR opara decirle como se comprote y que muestre
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+#CKEDITOR_CONFIGS ={
+#    'default':{
+#        'toolbar':'Basic' #podriamos aqui poner None para mostrar todo
+#    }
+#}
